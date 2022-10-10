@@ -46,21 +46,19 @@ function setup() {
   document.oncontextmenu = function () {
     return false;
   };
-  //cam.setYawRotationMode();
 
   // clock width and height to display responsive to screen
   clockWidth = width / 10;
   clockHeight = height / 2;
-
   // variables to declare offset
   hPos = 3;
   mPos = 5.5;
   sPos = 7.7;
 
   // segment width and height responsive to layout
-  rWidth = width / 15;
-  rHeight = height / 50;
-  offset = rWidth * 0.05;
+  rWidth = width >= height ? width / 15 : height / 15;
+  rHeight = width >= height ? height / 50 : width / 50;
+  offset = width >= height ? rWidth * 0.05 : rHeight * 0.05;
 
   // array with each digit of time
   timeClock = int(

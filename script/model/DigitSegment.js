@@ -9,51 +9,51 @@ class Segment {
   display() {
     // colors
     noStroke();
-    fill(245, 20, 20, 200);
     if (this.state == 0) {
       noFill();
-
-      // show disabled segments
-      //stroke(180, 10);
-    }
-
-    if (this.isMiddle) {
-      triangle(
-        -this.segmentW / 2,
-        this.segmentH / 2,
-        -(this.segmentW / 2 + this.segmentH),
-        0,
-        -this.segmentW / 2,
-        -this.segmentH / 2
-      );
-      triangle(
-        this.segmentW / 2,
-        this.segmentH / 2,
-        this.segmentW / 2 + this.segmentH,
-        0,
-        this.segmentW / 2,
-        -this.segmentH / 2
-      );
     } else {
-      triangle(
-        -this.segmentW / 2,
-        this.segmentH / 2,
-        -(this.segmentW / 2 + (this.segmentH * 2) / 5),
-        -this.segmentH / 2,
-        -this.segmentW / 2,
-        -this.segmentH / 2
-      );
-      triangle(
-        this.segmentW / 2,
-        this.segmentH / 2,
-        this.segmentW / 2 + (this.segmentH * 2) / 5,
-        -this.segmentH / 2,
-        this.segmentW / 2,
-        -this.segmentH / 2
-      );
+      fill(250, 15, 20, 200);
     }
 
-    rect(0, 0, this.segmentW, this.segmentH);
+    // main body
+    beginShape();
+    vertex(-this.segmentW / 2, -this.segmentH / 2);
+    vertex(-this.segmentW / 2, this.segmentH / 2);
+    vertex(this.segmentW / 2, this.segmentH / 2);
+    vertex(this.segmentW / 2, -this.segmentH / 2);
+    endShape(CLOSE);
+
+    // middle triangles
+    if (this.isMiddle) {
+      beginShape();
+      vertex(-this.segmentW / 2, this.segmentH / 2);
+      vertex(-(this.segmentW / 2 + this.segmentH), 0);
+      vertex(-this.segmentW / 2, -this.segmentH / 2);
+      endShape();
+
+      beginShape();
+      vertex(this.segmentW / 2, this.segmentH / 2);
+      vertex(this.segmentW / 2 + this.segmentH, 0);
+      vertex(this.segmentW / 2, -this.segmentH / 2);
+      endShape();
+    } else {
+      // other triangles
+
+      beginShape();
+      vertex(-this.segmentW / 2, this.segmentH / 2);
+      vertex(
+        -(this.segmentW / 2 + (this.segmentH * 2) / 5),
+        -this.segmentH / 2
+      );
+      vertex(-this.segmentW / 2, -this.segmentH / 2);
+      endShape();
+
+      beginShape();
+      vertex(this.segmentW / 2, this.segmentH / 2);
+      vertex(this.segmentW / 2 + (this.segmentH * 2) / 5, -this.segmentH / 2);
+      vertex(this.segmentW / 2, -this.segmentH / 2);
+      endShape();
+    }
   }
 
   newState(state_) {

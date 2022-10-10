@@ -7,6 +7,9 @@ let green = 50;
 let blue = 51;
 // start with rotation of clock (R to toggle)
 let rotateBox = true;
+let showDigits = true;
+let showBraille = true;
+let showBox = true;
 
 // rest
 let cam;
@@ -155,35 +158,42 @@ function setup() {
 function draw() {
   background(red, green, blue);
 
-  cam.setCenter([width / 2, height / 2, 0]);
-
   // camera movement
+  cam.setCenter([width / 2, height / 2, 0]);
   if (rotateBox) {
     cam.rotateY(camAngle);
     camAngle = map(cos(a), -1, 1, -0.005, 0.005);
     a += 0.005;
   }
 
+  // time update
+  timeClock = int(
+    ("" + nf(hour(), 2) + nf(minute(), 2) + nf(second(), 2)).split("")
+  );
+
   push();
   rotateX(boxAngle);
 
   // clock box display
-  lights();
-  body.display();
+  if (showBox) {
+    lights();
+    body.display();
+  }
 
   // digit display and update
-  timeClock = int(
-    ("" + nf(hour(), 2) + nf(minute(), 2) + nf(second(), 2)).split("")
-  );
-  for (let index = 0; index < digits.length; index++) {
-    digits[index].update(timeClock[index]);
-    digits[index].display();
+  if (showDigits) {
+    for (let index = 0; index < digits.length; index++) {
+      digits[index].update(timeClock[index]);
+      digits[index].display();
+    }
   }
 
   // braille dots of hours and minutes
-  for (let index = 0; index < symbols.length; index++) {
-    symbols[index].update(timeClock[index]);
-    symbols[index].display();
+  if (showBraille) {
+    for (let index = 0; index < symbols.length; index++) {
+      symbols[index].update(timeClock[index]);
+      symbols[index].display();
+    }
   }
   pop();
 }

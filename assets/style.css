@@ -41,6 +41,7 @@ ul {
 
 li {
   padding: 20px;
+  cursor: default;
 }
 
 /* footer */

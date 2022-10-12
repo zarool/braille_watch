@@ -1,15 +1,16 @@
 // to customize
-// how much to zoom on watch
+// how much to zoom on watch (bigger number = further camera view - best is 0.9)
 let zoomScale = 0.9;
 // background colors
 let red = 49;
 let green = 50;
 let blue = 51;
+
 // start with rotation of clock (R to toggle)
-let rotateBox = true;
-let showDigits = true;
-let showBraille = true;
-let showBox = true;
+let rotateBox = true; // key R
+let showDigits = true; // key D
+let showBraille = true; // key B
+let showBox = true; // key C
 
 // rest
 let cam;
@@ -60,7 +61,7 @@ function setup() {
 
   // segment width and height responsive to layout
   rWidth = width >= height ? width / 15 : height / 15;
-  rHeight = width >= height ? height / 50 : width / 50;
+  rHeight = width >= height ? height / 25 : width / 25;
   offset = width >= height ? rWidth * 0.05 : rHeight * 0.05;
 
   // array with each digit of time
@@ -201,5 +202,14 @@ function draw() {
 function keyPressed() {
   if (key == "r" || key == "R") {
     rotateBox = !rotateBox;
+  }
+  if (key == "d" || key == "D") {
+    showDigits = !showDigits;
+  }
+  if (key == "b" || key == "B") {
+    showBraille = !showBraille;
+  }
+  if (key == "c" || key == "C") {
+    showBox = !showBox;
   }
 }

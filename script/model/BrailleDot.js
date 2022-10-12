@@ -14,7 +14,7 @@ class Dot {
     }
 
     push();
-    translate(0, 0, -this.size / 4);
+    translate(0, 0, -this.size * 0.3);
     sphere(this.size / 2);
     pop();
   }

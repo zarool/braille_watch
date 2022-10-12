@@ -8,4 +8,4 @@ Current version lack of design and detailed information about construction. It i
 
 ## Showcase
 
-![Braille gif](/assets/braille.gif)
+![Braille gif](/assets/braille2.gif)

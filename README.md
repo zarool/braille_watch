@@ -9,3 +9,15 @@ Current version lack of design and detailed information about construction. It i
 ## Showcase
 
 ![Braille gif](/assets/braille2.gif)
+
+## Features
+
+- Live previews
+- Each digit of hour and minute is represented by braille symbol (2x2 grid of dots)
+- Toggle on or off LED display by pressing D on keyboard
+- Processing version in script file
+- In future there will be changes of watch colours and whole look of it
+
+## Authors
+
+- [@zarool](https://www.github.com/zarool)

@@ -1,5 +1,7 @@
 # Braille Watch 1.0
 
+[Website (by GitHub Pages)](https://zarool.github.io/braille_watch/)
+
 Simple and innovative model of watch, which has braille symbols in it. Goal of this project is tu help blind people, who will no longer need to ask everyone for time - from now on, they will be able to read it using only one finger, reading braille numbers coresponding to current time (hours:minutes).
 
 As for design, watch will have LED display of current time, so it will be suitable for everyone.
